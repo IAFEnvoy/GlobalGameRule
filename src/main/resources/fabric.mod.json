@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "globalgamerule",
+  "version": "${version}",
+  "name": "Global Game Rule",
+  "description": "Set force game rules for all worlds.",
+  "authors": [
+    "IAFEnvoy"
+  ],
+  "contact": {
+    "repo": "https://github.com/ArkTechMC/GlobalGamerule"
+  },
+  "license": "LGPL-3.0",
+  "icon": "assets/globalgamerule/icon.png",
+  "environment": "*",
+  "mixins": [
+    "global_game_rule.mixins.json"
+  ],
+  "accessWidener": "global_game_rule.accesswidener",
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "1.20.x"
+  }
+}
