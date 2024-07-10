@@ -8,11 +8,16 @@
     "IAFEnvoy"
   ],
   "contact": {
-    "repo": "https://github.com/ArkTechMC/GlobalGamerule"
+    "repo": "https://github.com/ArkTechMC/GlobalGameRule"
   },
   "license": "LGPL-3.0",
-  "icon": "assets/globalgamerule/icon.png",
+  "icon": "logo.png",
   "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.iafenvoy.globalgamerule.GlobalGameRule"
+    ]
+  },
   "mixins": [
     "global_game_rule.mixins.json"
   ],

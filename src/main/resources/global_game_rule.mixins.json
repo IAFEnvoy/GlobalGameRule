@@ -4,6 +4,7 @@
   "package": "com.iafenvoy.globalgamerule.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "GameRuleCommandMixin",
     "GameRulesMixin"
   ],
   "client": [
