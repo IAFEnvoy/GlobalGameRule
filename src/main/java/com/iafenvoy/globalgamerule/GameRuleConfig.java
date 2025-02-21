@@ -18,11 +18,11 @@ import java.nio.charset.StandardCharsets;
 public enum GameRuleConfig implements SimpleSynchronousResourceReloadListener {
     INSTANCE;
     private static final String PATH = "./config/global_game_rule.json";
-    private JsonObject GAME_RULE_MAP = null;
+    private JsonObject gameRuleMap = null;
 
     @Override
     public Identifier getFabricId() {
-        return null;
+        return Identifier.of(GlobalGameRule.MOD_ID, GlobalGameRule.MOD_ID);
     }
 
     @Override
@@ -30,7 +30,7 @@ public enum GameRuleConfig implements SimpleSynchronousResourceReloadListener {
         try {
             FileInputStream stream = new FileInputStream(PATH);
             InputStreamReader reader = new InputStreamReader(stream);
-            GAME_RULE_MAP = JsonParser.parseReader(reader).getAsJsonObject();
+            gameRuleMap = JsonParser.parseReader(reader).getAsJsonObject();
         } catch (IOException e) {
             GlobalGameRule.LOGGER.error("Failed to read file {}", PATH, e);
             try {
@@ -38,15 +38,15 @@ public enum GameRuleConfig implements SimpleSynchronousResourceReloadListener {
             } catch (IOException ex) {
                 GlobalGameRule.LOGGER.error("Failed to write file {}", PATH, ex);
             }
-            GAME_RULE_MAP = new JsonObject();
+            gameRuleMap = new JsonObject();
         }
     }
 
     @Nullable
     public JsonPrimitive getData(String key) {
-        if (GAME_RULE_MAP == null) this.reload(null);
+        if (gameRuleMap == null) this.reload(null);
         try {
-            if (GAME_RULE_MAP.has(key)) return GAME_RULE_MAP.getAsJsonPrimitive(key);
+            if (gameRuleMap.has(key)) return gameRuleMap.getAsJsonPrimitive(key);
         } catch (Exception e) {
             GlobalGameRule.LOGGER.error("Cannot read key {}", key, e);
         }

@@ -7,6 +7,7 @@ import net.minecraft.resource.ResourceType;
 import org.slf4j.Logger;
 
 public class GlobalGameRule implements ModInitializer {
+    public static final String MOD_ID = "global_game_rule";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     @Override

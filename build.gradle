@@ -3,14 +3,14 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
+version = project.mod_version + '-' + project.minecraft_version
 group = project.maven_group
 
 base {
     archivesName = project.archives_base_name
 }
 
-loom{
+loom {
     accessWidenerPath = file("src/main/resources/global_game_rule.accesswidener")
 }
 
@@ -70,7 +70,7 @@ java {
 
 jar {
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}"}
+        rename { "${it}_${project.archivesBaseName}" }
     }
 }
 
